@@ -22,7 +22,7 @@ steer_pair = MoveSteering(OUTPUT_B, OUTPUT_C)
 run = True
 
 #PID迴圈
-while run == True:
+while a != 0:
     e = csL - csR - 2
     up = kp * e
     x = ( e * dt ) / de
@@ -33,5 +33,4 @@ while run == True:
     steer_pair.on(steering=turn, speed=40)
 
     if csL <= 20 and csL <= 20 :
-        run = False
-        break
+        a += 1
