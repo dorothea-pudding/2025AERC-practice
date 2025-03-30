@@ -22,9 +22,8 @@ steer_pair = MoveSteering(OUTPUT_B, OUTPUT_C)
 run = True
 a = 0
 
-
 #PID迴圈
-while run == True:
+while a < 7 :
     e = csL - csR - 2
     up = kp * e
     x = ( e * dt ) / de
@@ -38,15 +37,21 @@ while run == True:
     if csL <= 20 and csL <= 20 :
         a += 1
         if a == 1 :
-            steer_pair.on(steering = -75, speed = 50, seconds = 0.7)
+            steer_pair.on(steering = -45, speed = 50, seconds = 0.5)
         if a == 2 :
-            steer_pair.on(steering = -35, speed = 50, seconds = 0.5)
+            steer_pair.on(steering = -75, speed = 50, seconds = 0.7)
         if a == 3 :
-            steer_pair.on(steering = 50, speed = 50, seconds = 0.8)
+            steer_pair.on(steering = -35, speed = 50, seconds = 0.5)
         if a == 4 :
-            run = False
-            break
-    
+            steer_pair.on(steering = , speed = 50, seconds = 1.5)
+        if a == 5 :
+            steer_pair.on(steering = 45, speed = 50, seconds = 0.5)
+            steer_pair.on(steering = 0, speed = 50, seconds = 0.5)
+            steer_pair.on(steering = -45, speed = 50, seconds = 0.8)
+        if a == 6 :
+            steer_pair.on(steering = 0, speed = 50, seconds = 1)
+
+
     #避障
     if us <= 30 :
         steer_pair.on(steering = -40, speed = 40, seconds = 1)
