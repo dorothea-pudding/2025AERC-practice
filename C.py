@@ -23,7 +23,7 @@ run = True
 a = 0
 
 #PID迴圈
-while run == True:
+while a < 5:
     e = csL - csR - 2
     up = kp * e
     x = ( e * dt ) / de
@@ -41,4 +41,13 @@ while run == True:
             steer_pair.on(steering = 0, speed = 50, seconds = 0.5)
             steer_pair.on(steering = 45, speed = 50, seconds = 0.8)
         if a == 2 :
+            steer_pair.on(steering = 45, speed = 50, seconds = 0.8)
+            steer_pair.on(steering = 0, speed = 50, seconds = 1)
+        if a == 3 :
+            steer_pair.on(steering = 0, speed = 50, seconds = 0.2)
+        if a == 4 :
+            steer_pair.on(steering = -45, speed = 50, seconds = 0.8)
+            steer_pair.on(steering = 0, speed = 50, seconds = 0.8)
+            steer_pair.on(steering = -45, speed = 50, seconds = 0.8)
+
             
